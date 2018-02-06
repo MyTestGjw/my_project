@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <bean id="actionquery" name="actionquery" class="action.Query"></bean>
+    <aop:config>
+    <aop:aspect ref="jaop">
+    <aop:pointcut id="sleepcut" expression="execution(* action.Mysleep.*(..))"/>
+    <aop:before method="beforeaop" pointcut-ref="sleepcut"/>
+    </aop:aspect>
+    </aop:config>
+    <bean id="jaop" name="jaop" class="aops.Jaop"></bean>
+    <bean id="usersleep" name="usersleep" class="action.Mysleep"></bean>
+</beans>

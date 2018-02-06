@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring"></constant>  
+    <package name="users" namespace="/users" extends="struts-default">
+        <action name="query" class="actionquery" method="queryInfo">
+         <result name="success">  
+           /main.html
+        </result>  
+        </action>
+        <action name="sleep" class="usersleep" method="sleep"></action>
+    </package>
+</struts>
